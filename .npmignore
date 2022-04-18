@@ -3,7 +3,12 @@
 .vscode
 /dist
 /src
+.npmrc
+.dockerignore
+.eslintrc.js
+/nodemon.json
+/package.json
+/tsconfig.json
 /example_sources
 node_modules
 tests/
-.npmrc

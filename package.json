@@ -1,7 +1,7 @@
 {
   "name": "@erez111/web-assets-aggregator",
   "description": "Set of tools for handling web assets aggregation (with compilation, minify, obfuscate) for typescript/javascript and scss/css files",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "dist/src/cli.js",
   "author": "Erez Narotzki",
   "license": "BSD2-Clause",

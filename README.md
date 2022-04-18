@@ -11,9 +11,24 @@ Using this package, you can aggregate, minify & obfuscate .js output file. <br /
 Using this package, you can aggregate, compile & minify .css output file.
 
 ## Example to .js, .ts files aggregation, minification & obfuscation
+### Adding script to  package.json file
+```
+...
+"scripts": {
+  ...
+  "generate": "web-assets-aggregator generate --output js --target aggregate.js --sources source1.js source2.ts",
+  "build": your build original implementation,
+  "postbuild": "npm run generate"
+}
+...
+```
 ### Command
 ```
-web-assets-aggregator generate --output js --target aggregate.js --sources source1.js source2.ts
+npm run generate
+```
+or create "post" script to make use life cycle scripts events. Example:
+```
+npm run build
 ```
 
 #### source1.js
