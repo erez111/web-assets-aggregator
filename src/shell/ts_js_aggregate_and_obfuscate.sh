@@ -10,10 +10,10 @@
 sources=$(echo $2 | sed 's/,/ /g')
 #echo $sources
 
-dist_folder_path="${1%/*}/"
+dist_folder_path="$(dirname "${1}")"
 if [ ! -d $dist_folder_path ]
 then
-     mkdir -p $dist_folder_path
+  mkdir -p $dist_folder_path
 fi
 
 tsc --allowjs true --outFile $dist_folder_path/__temp_js_agg_file.js $sources
