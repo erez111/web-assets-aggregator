@@ -1,0 +1,9 @@
+package-lock.json
+/dist
+.git
+.npmrc
+.gitignore
+.idea
+.cache
+node_modules
+.dockerignore

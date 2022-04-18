@@ -1,0 +1,60 @@
+{
+  "name": "@erez111/web-assets-aggregator",
+  "description": "Set of tools for handling web assets aggregation (with compilation, minify, obfuscate) for typescript/javascript and scss/css files",
+  "version": "0.0.1",
+  "main": "dist/src/cli.js",
+  "author": "Erez Narotzki",
+  "license": "BSD2-Clause",
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "copyfiles src/shell/* dist/",
+    "dev": "concurrently \"nodemon\" \"nodemon",
+    "generate_js": "sh dist/src/shell/ts_js_aggregate_and_obfuscate.sh",
+    "generate_css": "sh dist/src/shell/scss_css_aggregate_compile_and_minify.sh"
+  },
+  "bin": {
+    "web-assets-aggregator": "dist/src/cli.js"
+  },
+  "dependencies": {
+    "javascript-obfuscator": "~4.0.0",
+    "minify": "~8.0.4",
+    "sass": "~1.50.0",
+    "yargs": "~17.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.24",
+    "@types/yargs": "~17.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "concurrently": "~7.1.0",
+    "copyfiles": "~2.4.1",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "~2.0.15",
+    "ts-node": "~10.7.0",
+    "typescript": "~4.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erez111/web-assets-aggregator.git"
+  },
+  "keywords": [
+    "web-assets-aggregator",
+    "cli web-assets-aggregator",
+    "node aggregate, minify, compile, obfuscate",
+    "web assets aggregator",
+    "aggregation",
+    "minify",
+    "compile",
+    "obfuscate",
+    "obfuscation",
+    "node",
+    "nodejs",
+    "typescript"
+  ],
+  "bugs": {
+    "url": "https://github.com/erez111/web-assets-aggregator/issues"
+  },
+  "homepage": "https://github.com/erez111/web-assets-aggregator#readme"
+}
