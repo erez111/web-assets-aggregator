@@ -1,14 +1,14 @@
 {
   "name": "@erez111/web-assets-aggregator",
   "description": "Set of tools for handling web assets aggregation (with compilation, minify, obfuscate) for typescript/javascript and scss/css files",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "dist/src/cli.js",
   "author": "Erez Narotzki",
   "license": "BSD2-Clause",
   "scripts": {
     "build": "tsc",
     "postbuild": "copyfiles src/shell/* dist/",
-    "dev": "concurrently \"nodemon\" \"nodemon",
+    "dev": "concurrently \"nodemon\"",
     "generate_js": "sh dist/src/shell/ts_js_aggregate_and_obfuscate.sh",
     "generate_css": "sh dist/src/shell/scss_css_aggregate_compile_and_minify.sh",
     "prepublish": "npm run build",
