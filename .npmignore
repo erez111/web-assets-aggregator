@@ -2,7 +2,8 @@
 .idea
 .vscode
 /dist
-/data
+/src
+/example_sources
 node_modules
 tests/
 .npmrc
