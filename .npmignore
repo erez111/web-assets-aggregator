@@ -6,6 +6,7 @@
 .npmrc
 .dockerignore
 .eslintrc.js
+.gitattributes
 /nodemon.json
 /tsconfig.json
 /example_sources
