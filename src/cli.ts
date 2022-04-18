@@ -56,11 +56,11 @@ function initializeCommands(): void {
     .option('target', targetArgument)
     .option('sources', sourcesArguments)
     .example(
-      `${cliCommandName} generate --output js --target [target file] --sources [list of .js/.ts sources separated with commas without spaces]`,
+      `${cliCommandName} generate --output js --target [target file] --sources [list of .js/.ts sources separated with space]`,
       'Aggregates and Obfuscate into .js file',
     )
     .example(
-      `${cliCommandName} generate --output css --target [target file] --sources [list of .scss/.css sources separated with commas without spaces]`,
+      `${cliCommandName} generate --output css --target [target file] --sources [list of .scss/.css sources separated with space]`,
       'Aggregates and Obfuscate into .css file',
     )
     .help('help')
@@ -98,13 +98,13 @@ async function generateCommand(): Promise<void> {
     switch (output) {
       case 'js':
         const scriptJsPath = getCurrentRunningPath('/shell/ts_js_aggregate_and_obfuscate.sh');
-        console.info(await executeShellCommand(`sh ${scriptJsPath} ${target} ${sources.join(' ')}`));
-        // console.info(await executeShellCommand(`npm run generate_js ${target} ${sources.join(' ')}`));
+        console.info(await executeShellCommand(`sh ${scriptJsPath} ${target} ${sources.join(',')}`));
+        // console.info(await executeShellCommand(`npm run generate_js ${target} ${sources.join(',')}`));
         break;
       case 'css':
         const scriptCssPath = getCurrentRunningPath('/shell/scss_css_aggregate_compile_and_minify.sh');
-        console.info(await executeShellCommand(`sh ${scriptCssPath} ${target} ${sources.join(' ')}`));
-        // console.info(await executeShellCommand(`npm run generate_css ${target} ${sources.join(' ')}`));
+        console.info(await executeShellCommand(`sh ${scriptCssPath} ${target} ${sources.join(',')}`));
+        // console.info(await executeShellCommand(`npm run generate_css ${target} ${sources.join(',')}`));
         break;
       default:
         console.warn(`--output argument value must be ${outputList.join(' or ')}`);
