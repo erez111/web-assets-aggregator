@@ -5,6 +5,8 @@ import yargs from 'yargs';
 // eslint-disable-next-line import/no-import-module-exports
 import { license as packageLicense } from '../package.json';
 
+const path = require('path');
+const fs = require('fs');
 const { exec } = require('child_process');
 
 const outputList: string[] = ['js', 'css'];
@@ -67,6 +69,10 @@ function initializeCommands(): void {
     .argv;
 }
 
+function getCurrentRunningPath(additionalPath: string): string {
+  return path.join(path.dirname(fs.realpathSync(__filename)), additionalPath);
+}
+
 async function generateCommand(): Promise<void> {
   // @ts-ignore
   const { output, target, sources } = yargs.argv;
@@ -91,10 +97,14 @@ async function generateCommand(): Promise<void> {
   try {
     switch (output) {
       case 'js':
-        console.info(await executeShellCommand(`npm run generate_js ${target} ${sources.join(' ')}`));
+        const scriptJsPath = getCurrentRunningPath('/shell/ts_js_aggregate_and_obfuscate.sh');
+        console.info(await executeShellCommand(`sh ${scriptJsPath} ${target} ${sources.join(' ')}`));
+        // console.info(await executeShellCommand(`npm run generate_js ${target} ${sources.join(' ')}`));
         break;
       case 'css':
-        console.info(await executeShellCommand(`npm run generate_css ${target} ${sources.join(' ')}`));
+        const scriptCssPath = getCurrentRunningPath('/shell/scss_css_aggregate_compile_and_minify.sh');
+        console.info(await executeShellCommand(`sh ${scriptCssPath} ${target} ${sources.join(' ')}`));
+        // console.info(await executeShellCommand(`npm run generate_css ${target} ${sources.join(' ')}`));
         break;
       default:
         console.warn(`--output argument value must be ${outputList.join(' or ')}`);
