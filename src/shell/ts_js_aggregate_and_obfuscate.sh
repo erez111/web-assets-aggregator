@@ -6,6 +6,7 @@
 # Example using files: npm run ts_js_aggregate_and_obfuscate ./dist/aggregated.js ./example_sources/ts-and-js/a.ts,./example_sources/ts-and-js/b.ts,./example_sources/ts-and-js/c.js
 # Example using * wildcard: npm run ts_js_aggregate_and_obfuscate ./dist/aggregated.js ./example_sources/ts-and-js/*.ts,./example_sources/ts-and-js/*.js
 
+set -e
 
 sources=$(echo $2 | sed 's/,/ /g')
 #echo $sources
@@ -22,3 +23,5 @@ tsc --allowjs true --outFile $dist_folder_path/__temp_js_agg_file.js $sources
 
 javascript-obfuscator $dist_folder_path/__temp_js_agg_file.js --output $1
 rm $dist_folder_path/__temp_js_agg_file.js
+
+echo "Ready Target File ${1}"

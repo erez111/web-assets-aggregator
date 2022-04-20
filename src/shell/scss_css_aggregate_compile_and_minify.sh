@@ -6,6 +6,7 @@
 # Example using files: npm run scss_css_aggregate_compile_and_minify ./dist/aggregated.min.css ./example_sources/scss-and-css/a.scss,./example_sources/scss-and-css/b.scss,./example_sources/scss-and-css/c.css
 # Example using * wildcard: npm run scss_css_aggregate_compile_and_minify ./dist/aggregated.min.css ./example_sources/scss-and-css/*.scss,./example_sources/scss-and-css/*.css
 
+set -e
 
 sources=$(echo $2 | sed 's/,/ /g')
 #echo $sources
@@ -26,3 +27,5 @@ rm $dist_folder_path/__temp_scss_agg_file.scss
 # Minify css file
 minify $dist_folder_path/__temp_scss_agg_file.css > $1
 rm $dist_folder_path/__temp_scss_agg_file.css
+
+echo "Ready Target File ${1}"
